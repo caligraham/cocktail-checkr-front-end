@@ -1,5 +1,6 @@
 const baseURL = "http://localhost:3000/"
 const cocktailsList = document.getElementById("cocktails-list")
+const cocktailShow = document.getElementById("cocktail-show")
 
 class Cocktail {
     static all = []
@@ -17,23 +18,42 @@ class Cocktail {
         .then(cocktailData => { 
             cocktailData.forEach(cocktail => {
                 let c = new Cocktail(cocktail)
-                c.addToDom()
+                c.addToDom(cocktailsList)
+                console.log(cocktail)
                 
             })
         })
     }
 
-    static handleClick(e){
-        console.log(e.target)
-        cocktailsList.style.display = "none"
+  handleClick(e){
+        cocktailsList.style.display ="none"
+        cocktailShow.style.display=""
+        this.addToShow()
+        this.addToDom(cocktailShow)
+        let cocktailId = parseInt(e.target.id.split("-")[1])
+        Review.fetchReviews(cocktailId)
     }
 
-    addToDom(){
+    addToDom(node){
         let image = document.createElement('img');
         image.src = this.image_url
         image.id = `cocktail-${this.id}`
         cocktailsList.appendChild(image)
-        image.addEventListener('click', Cocktail.handleClick)
+        image.addEventListener('click', (e) => this.handleClick(e))
+    }
+
+    addToShow(){
+
+        let div = document.createElement('div');
+        let title = document.createElement('h2');
+        title.innerText = this.name
+        let image = document.createElement('img');
+        image.src = this.image_url
+        image.id = `cocktail-${this.id}`
+        div.appendChild(title)
+        div.appendChild(image)
+        cocktailShow.prepend(div)
+
     }
 
 
