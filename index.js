@@ -1,33 +1,18 @@
-// load the page & fetch data
-
-const baseUrl = "http://localhost:3000/"
-const cocktailsList = document.querySelector("#cocktails-list")
-
-
-    fetch(baseUrl + "cocktails")
-    .then(res => res.json())
-    .then(res => console.log(res))
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function(){
-    fetch(baseUrl + "cocktails")
-    .then(res => res.json())
-    .then(cocktailData => { 
-        cocktailData.forEach(cocktail => {
-            let image = document.createElement('image');
-            image.src = cocktail.image_url
-            cocktailsList.appendChild(image)
-        })
-    })
-
+    Cocktail.fetchCocktails()
 })
 
+// load the page & fetch data
+
+
+
+
+    // fetch(baseURL + "cocktails")
+    // .then(res => res.json())
+    // .then(res => console.log(res))
+
+
+    
 
 // let config = {
 //     method: "POST",
