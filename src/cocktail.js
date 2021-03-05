@@ -23,8 +23,9 @@ class Cocktail {
         })
     }
 
-    static handleClick(){
-        
+    static handleClick(e){
+        console.log(e.target)
+        cocktailsList.style.display = "none"
     }
 
     addToDom(){
