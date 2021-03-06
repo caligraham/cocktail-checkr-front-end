@@ -31,7 +31,34 @@ class Review {
         let title = document.querySelector("#title").value
         let content = document.querySelector("#content").value
         let rating = document.querySelector("#rating").value
+        let cocktailId = document.querySelector("cocktail_id").value
+
+        reviewForm.reset()
+
+        let reviewObj = {
+            title, content, rating
     }
+    
+    let config = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(reviewObj)
+    }
+
+    fetch(`http://localhost:3000/cocktails/${cocktailId}/reviews`, config)
+        .then(res => res.json())
+        .then(res => {
+            let r = new Review(res)
+            r.addToDom()
+            newReview.style.display=""
+            reviewForm.style.display="none"
+
+        })
+    }
+
     static listenForEvents(){
         newReview.addEventListener('click', this.showForm)
         reviewForm.addEventListener('submit', (e) => Review.createReview(e))
