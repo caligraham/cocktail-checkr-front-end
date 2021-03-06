@@ -1,6 +1,8 @@
 const baseURL = "http://localhost:3000/"
 const cocktailsList = document.getElementById("cocktails-list")
 const cocktailShow = document.getElementById("cocktail-show")
+const newReview = document.querySelector("#new-review")
+const reviewForm = document.querySelector('#review-form')
 
 class Cocktail {
     static all = []
@@ -8,7 +10,6 @@ class Cocktail {
         this.id = id
         this.name = name
         this.image_url = image_url
-
         Cocktail.all.push(this)
     }
 
@@ -18,18 +19,21 @@ class Cocktail {
         .then(cocktailData => { 
             cocktailData.forEach(cocktail => {
                 let c = new Cocktail(cocktail)
-                c.addToDom(cocktailsList)
+                c.addToDom()
                 console.log(cocktail)
                 
             })
         })
     }
 
+    static createCocktail(e){
+
+    }
+
   handleClick(e){
         cocktailsList.style.display ="none"
         cocktailShow.style.display=""
         this.addToShow()
-        this.addToDom(cocktailShow)
         let cocktailId = parseInt(e.target.id.split("-")[1])
         Review.fetchReviews(cocktailId)
     }
@@ -56,6 +60,17 @@ class Cocktail {
 
     }
 
+    static listenForEvents(){
+        newReview.addEventListener('click', this.showForm)
+        reviewForm.addEventListener('submit', (e) => Cocktail.createCocktail(e))
+    }
+
+    static showForm(){
+        newReview.style.display="none"
+        reviewForm.style.display=""
+        
+
+    }
 
 
 }
