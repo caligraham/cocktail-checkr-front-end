@@ -1,8 +1,8 @@
 const baseURL = "http://localhost:3000/"
 const cocktailsList = document.getElementById("cocktails-list")
 const cocktailShow = document.getElementById("cocktail-show")
-const newReview = document.querySelector("#new-review")
-const reviewForm = document.querySelector('#review-form')
+// const newReview = document.querySelector("#new-review")
+// const reviewForm = document.querySelector('#review-form')
 
 class Cocktail {
     static all = []
@@ -24,10 +24,6 @@ class Cocktail {
                 
             })
         })
-    }
-
-    static createCocktail(e){
-
     }
 
   handleClick(e){
@@ -60,17 +56,17 @@ class Cocktail {
 
     }
 
-    static listenForEvents(){
-        newReview.addEventListener('click', this.showForm)
-        reviewForm.addEventListener('submit', (e) => Cocktail.createCocktail(e))
-    }
+    // static listenForEvents(){
+    //     newReview.addEventListener('click', this.showForm)
+    //     reviewForm.addEventListener('submit', (e) => Cocktail.createCocktail(e))
+    // }
 
-    static showForm(){
-        newReview.style.display="none"
-        reviewForm.style.display=""
+    // static showForm(){
+    //     newReview.style.display="none"
+    //     reviewForm.style.display=""
         
 
-    }
+    // }
 
 
 }
