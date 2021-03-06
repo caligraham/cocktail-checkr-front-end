@@ -43,7 +43,6 @@ class Cocktail {
     }
 
     addToShow(){
-
         let div = document.createElement('div');
         let title = document.createElement('h2');
         title.innerText = this.name
@@ -53,6 +52,11 @@ class Cocktail {
         div.appendChild(title)
         div.appendChild(image)
         cocktailShow.prepend(div)
+        let input = document.createElement('input')
+        input.type="hidden"
+        input.value= this.id
+        input.id="cocktail_id"
+        reviewForm.prepend(input)
 
     }
 
