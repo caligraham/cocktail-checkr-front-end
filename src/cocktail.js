@@ -49,6 +49,7 @@ class Cocktail {
         let image = document.createElement('img');
         image.src = this.image_url
         image.id = `cocktail-${this.id}`
+        image.className = 'cocktail-size'
         div.appendChild(title)
         div.appendChild(image)
         cocktailShow.prepend(div)
