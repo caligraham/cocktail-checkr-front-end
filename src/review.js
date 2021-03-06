@@ -19,8 +19,8 @@ class Review {
         .then(res => res.json())
         .then(reviewData => {
             reviewData.forEach(review => {
-                let r = new Review(review)
-                r.addToDom()
+                let x = new Review(review)
+                x.addToDom()
             })
         })
         
@@ -31,7 +31,7 @@ class Review {
         let title = document.querySelector("#title").value
         let content = document.querySelector("#content").value
         let rating = document.querySelector("#rating").value
-        let cocktailId = document.querySelector("cocktail_id").value
+        let cocktailId = document.getElementById("cocktail_id").value
 
         reviewForm.reset()
 
@@ -76,7 +76,7 @@ class Review {
 
     setElementHTML() {
         this.element.innerHTML = `
-        <h1>${this.title} ${this.rating} </h1>
+        <h1>${this.title} ${this.rating}</h1>
         <p>${this.content}</p>
         `
         return this.element
