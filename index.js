@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
     Cocktail.fetchCocktails()
+    Cocktail.listenForEvents()
 })
 
 // load the page & fetch data
