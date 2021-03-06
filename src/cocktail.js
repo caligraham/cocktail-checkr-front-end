@@ -20,13 +20,12 @@ class Cocktail {
             cocktailData.forEach(cocktail => {
                 let c = new Cocktail(cocktail)
                 c.addToDom()
-                console.log(cocktail)
                 
             })
         })
     }
 
-  handleClick(e){
+    handleClick(e){
         cocktailsList.style.display ="none"
         cocktailShow.style.display=""
         this.addToShow()
@@ -34,10 +33,11 @@ class Cocktail {
         Review.fetchReviews(cocktailId)
     }
 
-    addToDom(node){
+    addToDom(){
         let image = document.createElement('img');
         image.src = this.image_url
         image.id = `cocktail-${this.id}`
+        image.className = 'cocktail-size'
         cocktailsList.appendChild(image)
         image.addEventListener('click', (e) => this.handleClick(e))
     }
@@ -60,20 +60,20 @@ class Cocktail {
 
     }
 
-    // static listenForEvents(){
-    //     newReview.addEventListener('click', this.showForm)
-    //     reviewForm.addEventListener('submit', (e) => Cocktail.createCocktail(e))
-    // }
-
-    // static showForm(){
-    //     newReview.style.display="none"
-    //     reviewForm.style.display=""
-        
-
-    // }
-
-
+    
+    
 }
 
 
+// static listenForEvents(){
+//     newReview.addEventListener('click', this.showForm)
+//     reviewForm.addEventListener('submit', (e) => Cocktail.createCocktail(e))
+// }
+
+// static showForm(){
+//     newReview.style.display="none"
+//     reviewForm.style.display=""
+    
+
+// }
 
