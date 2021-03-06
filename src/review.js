@@ -1,11 +1,14 @@
+const newReview = document.querySelector("#new-review")
+const reviewForm = document.querySelector('#review-form')
+
 class Review {
-    constructor({title, content, rating}){
+    constructor({id, title, content, rating}){
         this.title = title
         this.content = content
         this.rating = rating
 
         this.element = document.createElement("div")
-        this.element.id = `reviews-${id}`
+        this.element.id = `review-${id}`
         this.reviewsList = document.querySelector("#reviews-list")
 
 
@@ -22,6 +25,24 @@ class Review {
         })
         
     }
+
+    static createReview(e){
+        e.preventDefault()
+        let title = document.querySelector("#title").value
+        let content = document.querySelector("#content").value
+        let rating = document.querySelector("#rating").value
+    }
+    static listenForEvents(){
+        newReview.addEventListener('click', this.showForm)
+        reviewForm.addEventListener('submit', (e) => Review.createReview(e))
+    }
+
+    static showForm(){
+        newReview.style.display="none"
+        reviewForm.style.display=""
+        
+    }
+
     addToDom(){
         this.reviewsList.appendChild(this.setElementHTML())
     }
