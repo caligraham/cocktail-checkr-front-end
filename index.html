@@ -9,9 +9,15 @@
 <body>
     <div id="cocktails-list" class="width=300px; height=300px">
         <h1>DRANKY DRANKS</h1>
+            <div id="margarita" style="display:block"></div>
+            <div id="martini" style="display:block"></div>
+            <div id="mojito" style="display:block"></div>
     </div>
     <div id="cocktail-show" style="display:none">
         <button id="new-review">New Review</button>
+            <div id="margarita-show" style="display:block"></div>
+            <div id="martini-show" style="display:block"></div>
+            <div id="mojito-show" style="display:block"></div>
         <form id="review-form" style="display:none">
             <input type="text" name="title" id="title">
             <input type="text" name="content" id="content">
@@ -24,6 +30,7 @@
             </select>
             <input type="submit" value="Create Review">
         </form>
+        <button id="backbutton">Back</button>
         <div id="reviews-list"></div>
     </div>
     <script type="text/javascript" src="src/review.js"></script>
