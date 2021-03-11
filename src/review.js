@@ -76,7 +76,7 @@ class Review {
 
     setElementHTML() {
         this.element.innerHTML = `
-        <h1>${this.title} --- ${this.rating}⭐<</h1>
+        <h1>${this.title} --- ${this.rating}⭐</h1>
         <p>${this.content}</p>
         `
         return this.element
