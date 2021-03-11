@@ -1,5 +1,6 @@
 const newReview = document.querySelector("#new-review")
 const reviewForm = document.querySelector('#review-form')
+const backButton = document.querySelector('#backbutton')
 
 class Review {
     constructor({id, title, content, rating}){
@@ -66,8 +67,27 @@ class Review {
 
     static showForm(){
         newReview.style.display="none"
-        reviewForm.style.display=""
+        reviewForm.style.display="block"
         
+    }
+    
+    static listenForBackBtn() {
+        backButton.addEventListener('click', this.goBack)
+        
+    }
+    static goBack() {
+        // const reviewDiv = document.getElementById("reviews-list")
+       //  const cocktailShowDiv = document.getElementById("cocktail-show")
+        // reviewDiv.innerHTML = ""
+        // cocktailShowDiv.innerHTML = ""
+        document.querySelector("#reviews-list").innerHTML = ""
+        document.querySelector("#cocktail-show").style.display = "none"
+        // document.querySelector("#cocktail-this")
+        document.querySelector("#cocktails-list").style.display = "block"
+        let showDiv = cocktailShow.querySelector("div")
+        showDiv.remove()
+       
+
     }
 
     addToDom(){
