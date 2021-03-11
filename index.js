@@ -1,7 +1,9 @@
+
 document.addEventListener("DOMContentLoaded", function(){
     Cocktail.fetchCocktails()
     Review.listenForEvents()
 })
+
 
 // load the page & fetch data
 
@@ -17,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 // let config = {
 //     method: "POST",
-//     headers: {
+//     headers: {ç
 //         "Content-Type": "application/json",
 //         "Accept": "application/json"
 //     },
