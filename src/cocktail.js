@@ -38,12 +38,13 @@ class Cocktail {
         image.src = this.image_url
         image.id = `cocktail-${this.id}`
         image.className = 'cocktail-size'
-        cocktailsList.appendChild(image)
+       cocktailsList.appendChild(image)
         image.addEventListener('click', (e) => this.handleClick(e))
     }
 
     addToShow(){
         let div = document.createElement('div');
+        div.id = `cocktail-${this.id}`
         let title = document.createElement('h2');
         title.innerText = this.name
         let image = document.createElement('img');
