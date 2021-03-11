@@ -12,11 +12,11 @@ I made this project because I spent 10+ years in the service industry slangin' d
 
  - Clone both repo's (front-end & back-end)
  - In the back-end directory:
-        - Execute bundle install
-        - Run rails db:create
-        - Run rails db:migrate
-        - Run rails db:seed to seed the database, and access the cocktails.
-        - Start server with rails s
+    - Execute bundle install
+    - Run rails db:create
+    - Run rails db:migrate
+    - Run rails db:seed to seed the database, and access the cocktails.
+    - Start server with rails s
  - In the front-end directory:
         - Execute open index.html
  - In the browser you can click on a cocktail of your choice to view other reviews, and click the review button to leave a review for yourself.
