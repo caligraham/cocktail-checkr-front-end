@@ -10,7 +10,7 @@ I made this project because I spent 10+ years in the service industry slangin' d
 
 ## Installation & Usage
 
- - Clone both repo's (front-end & back-end)
+ - Fork & clone both repo's (front-end & back-end)
  - In the back-end directory:
     - Execute bundle install
     - Run rails db:create
