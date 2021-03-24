@@ -6,21 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🍸🥃-Cocktail-Checkr-🥃🍸</title>
 </head>
-<body>
-    <div id="cocktails-list" class="width=300px; height=300px">
-        <h1>DRANKY DRANKS</h1>
-            <div id="margarita" style="display:block"></div>
+
+<body style="background-color:darksalmon" class="center">
+    
+    <div id="cocktails-list" class="width=300px; height=300px" style="text-align:center">
+        <h1 style="font-family: 'Courier New', Courier, monospace; text-align:center">🍸🥃 DRANKY DRANKS 🥃🍸</h1>
+        <h4 style="font-family: 'Courier New', Courier, monospace; text-align:center">Click on your favorite drank!</h4>
+            <div id="margarita" style="display:block;"></div>
             <div id="martini" style="display:block"></div>
             <div id="mojito" style="display:block"></div>
     </div>
-    <div id="cocktail-show" style="display:none">
-        <button id="new-review">New Review</button>
+    <div id="cocktail-show" style="display:none; font-family: 'Courier New', Courier, monospace; text-align:center">
+        <button id="new-review" style="font-family: 'Courier New', Courier, monospace;">New Review</button>
             <div id="margarita-show" style="display:block"></div>
             <div id="martini-show" style="display:block"></div>
             <div id="mojito-show" style="display:block"></div>
-        <form id="review-form" style="display:none">
+        <form id="review-form" style="display:none; font-family: 'Courier New', Courier, monospace;">
+            Title:
             <input type="text" name="title" id="title">
+            Review:
             <input type="text" name="content" id="content">
+            Rating:
             <select name="rating" id="rating">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -28,10 +34,10 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <input type="submit" value="Create Review">
+            <input type="submit" style="font-family: 'Courier New', Courier, monospace;" value="Create Review">
         </form>
-        <button id="backbutton">Back</button>
-        <div id="reviews-list"></div>
+        <button id="backbutton" style="font-family: 'Courier New', Courier, monospace;">Back</button>
+        <div id="reviews-list" style="font-family: 'Courier New', Courier, monospace;"></div>
     </div>
     <script type="text/javascript" src="src/review.js"></script>
     <script type="text/javascript" src="src/cocktail.js"></script>
@@ -43,4 +49,13 @@
 <style>.cocktail-size {
     height: 200px;
     width: 200px;
-}</style>
+}
+
+.center {
+  margin: auto;
+  width: 53%;
+  border: 3px solid rgb(233, 26, 92);
+  padding: 69px;
+}
+
+</style>
