@@ -13,6 +13,8 @@ class Cocktail {
         Cocktail.all.push(this)
     }
 
+    // Creating new cocktail object
+
     static fetchCocktails(){
         fetch(baseURL + "cocktails")
         .then(res => res.json())
@@ -25,6 +27,8 @@ class Cocktail {
         })
     }
 
+    // retrieving cocktail information from back-end
+
     handleClick(e){
         cocktailsList.style.display ="none"
         cocktailShow.style.display=""
@@ -32,7 +36,7 @@ class Cocktail {
         let cocktailId = parseInt(e.target.id.split("-")[1])
         Review.fetchReviews(cocktailId)
     }
-
+    // hides the list & takes space away
     addToDom(){
         let image = document.createElement('img');
         image.src = this.image_url
@@ -41,6 +45,8 @@ class Cocktail {
        cocktailsList.appendChild(image)
         image.addEventListener('click', (e) => this.handleClick(e))
     }
+
+    // grabbing cocktail and adding only image to the DOM.
 
     addToShow(){
         let div = document.createElement('div');
