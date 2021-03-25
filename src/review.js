@@ -1,30 +1,43 @@
 const newReview = document.querySelector("#new-review")
 const reviewForm = document.querySelector('#review-form')
 const backButton = document.querySelector('#backbutton')
+const inputSearch = () => document.querySelector("#search")
+
 
 class Review {
-    constructor({id, title, content, rating}){
+    static all = []
+
+    constructor({id, title, content, rating, cocktail_id}){
         this.title = title
         this.content = content
         this.rating = rating
-
+        this.cocktail_id = cocktail_id
         this.element = document.createElement("div")
         this.element.id = `review-${id}`
         this.reviewsList = document.querySelector("#reviews-list")
-
-
     }
+
+    save() {
+        // not saving into DB, saving in array
+        Review.all.push(this)
+      }
+
     static fetchReviews(id){
 
         fetch(`http://localhost:3000/cocktails/${id}/reviews`)
         .then(res => res.json())
-        .then(reviewData => {
-            reviewData.forEach(review => {
-                let x = new Review(review)
-                x.addToDom()
-            })
+        .then(reviewData => { Review.render(reviewData)
         })
         
+    }
+
+    static render(array){
+        document.querySelector("#reviews-list").innerHTML = " "
+        array.forEach(review => {
+            let x = new Review(review)
+            x.save()
+            x.addToDom()
+        })
     }
 
     static createReview(e){
@@ -53,6 +66,7 @@ class Review {
         .then(res => res.json())
         .then(res => {
             let r = new Review(res)
+            r.save()
             r.addToDom()
             newReview.style.display=""
             reviewForm.style.display="none"
@@ -100,5 +114,29 @@ class Review {
         <p>${this.content}</p>
         `
         return this.element
+    }
+
+    static searchRender(array){
+        document.querySelector("#reviews-list").innerHTML = " "
+        array.forEach(review => {
+            let x = new Review(review)
+            x.addToDom()
+        })
+    }
+
+    static listenForKeyUp() {
+        inputSearch().addEventListener("change", this.inputFilter)
+    }
+
+    static inputFilter(e) {
+        const text = e.target.value
+        document.querySelector("#reviews-list").innerHTML = " "
+        if(text === "all" ) {
+            Review.searchRender(Review.all)
+        }
+        else{
+        const filtered = Review.all.filter(review => review.rating === parseInt(text))
+        Review.searchRender(filtered)
+        }
     }
 }

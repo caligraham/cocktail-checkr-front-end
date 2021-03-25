@@ -1,8 +1,7 @@
 const baseURL = "http://localhost:3000/"
 const cocktailsList = document.getElementById("cocktails-list")
 const cocktailShow = document.getElementById("cocktail-show")
-// const newReview = document.querySelector("#new-review")
-// const reviewForm = document.querySelector('#review-form')
+let currentCocktail;
 
 class Cocktail {
     static all = []
@@ -30,11 +29,16 @@ class Cocktail {
     // retrieving cocktail information from back-end
 
     handleClick(e){
+        Review.all = []
         cocktailsList.style.display ="none"
         cocktailShow.style.display=""
         this.addToShow()
         let cocktailId = parseInt(e.target.id.split("-")[1])
+        
         Review.fetchReviews(cocktailId)
+        
+        // currentCocktail = {}
+        currentCocktail = this
     }
     // hides the list & takes space away
     addToDom(){

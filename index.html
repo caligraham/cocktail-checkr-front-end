@@ -7,8 +7,7 @@
     <title>🍸🥃-Cocktail-Checkr-🥃🍸</title>
 </head>
 
-<body style="background-color:darksalmon" class="center">
-    
+<body class="center">
     <div id="cocktails-list" class="width=300px; height=300px" style="text-align:center">
         <h1 style="font-family: 'Courier New', Courier, monospace; text-align:center">🍸🥃 DRANKY DRANKS 🥃🍸</h1>
         <h4 style="font-family: 'Courier New', Courier, monospace; text-align:center">Click on your favorite drank!</h4>
@@ -37,6 +36,16 @@
             <input type="submit" style="font-family: 'Courier New', Courier, monospace;" value="Create Review">
         </form>
         <button id="backbutton" style="font-family: 'Courier New', Courier, monospace;">Back</button>
+        <br>
+        <p style="font-family: 'Courier New', Courier, monospace;">Search by rating:</p>
+        <select name="search" id="search">
+            <option value="all">all</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
         <div id="reviews-list" style="font-family: 'Courier New', Courier, monospace;"></div>
     </div>
     <script type="text/javascript" src="src/review.js"></script>
@@ -46,7 +55,17 @@
 
 </html>
 
-<style>.cocktail-size {
+<style>
+
+.body {
+    padding: 25px;
+    background-color: rgb(240, 176, 144);
+    color: black;
+    font-size: 25px;
+}
+        
+
+.cocktail-size {
     height: 200px;
     width: 200px;
 }
@@ -57,5 +76,7 @@
   border: 3px solid rgb(233, 26, 92);
   padding: 69px;
 }
+
+
 
 </style>
