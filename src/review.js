@@ -24,9 +24,9 @@ class Review {
 
     static fetchReviews(id){
 
-        fetch(`http://localhost:3000/cocktails/${id}/reviews`)
+        fetch(`http://localhost:3000/cocktails/${id}`)
         .then(res => res.json())
-        .then(reviewData => { Review.render(reviewData)
+        .then(cocktailData => { Review.render(cocktailData.reviews)
         })
         
     }
