@@ -2,6 +2,7 @@ const newReview = document.querySelector("#new-review")
 const reviewForm = document.querySelector('#review-form')
 const backButton = document.querySelector('#backbutton')
 const inputSearch = () => document.querySelector("#search")
+const sortedButton = () => document.querySelector("#sorted")
 
 
 class Review {
@@ -22,7 +23,7 @@ class Review {
         Review.all.push(this)
       }
 
-    static fetchReviews(id){
+      static fetchReviews(id){
 
         fetch(`http://localhost:3000/cocktails/${id}`)
         .then(res => res.json())
@@ -30,6 +31,12 @@ class Review {
         })
         
     }
+  
+    //static sorted()  {
+      //  const sorted = Review.all.sort(function (a, b) {
+        //    return b.title - a.title;
+        //})
+   // }
 
     static render(array){
         document.querySelector("#reviews-list").innerHTML = " "
@@ -139,4 +146,27 @@ class Review {
         Review.searchRender(filtered)
         }
     }
+
+    static sortedReviews() {
+        document.querySelector("#reviews-list").innerHTML = " "
+        const sorted = Review.all.sort(function(a, b) {
+            
+            let nameA = a.title.toUpperCase(); // ignore upper and lowercase
+            let nameB = b.title.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+        });
+        Review.searchRender(sorted)
+
+        }
+
+        static listenForSortedBtn() {
+            sortedButton().addEventListener('click', this.sortedReviews)
+        }
+    
 }

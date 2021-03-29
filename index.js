@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
     Review.listenForEvents()
     Review.listenForBackBtn()
     Review.listenForKeyUp()
+    Review.listenForSortedBtn()
 })
 
 
