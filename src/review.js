@@ -142,7 +142,7 @@ class Review {
             Review.searchRender(Review.all)
         }
         else{
-        const filtered = Review.all.filter(review => review.rating === parseInt(text))
+        const filtered = Review.all.filter(review => review.rating <= text)
         Review.searchRender(filtered)
         }
     }

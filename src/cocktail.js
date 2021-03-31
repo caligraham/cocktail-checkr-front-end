@@ -12,18 +12,23 @@ class Cocktail {
         Cocktail.all.push(this)
     }
 
+    //'this' is the instance here!
+
     // Creating new cocktail object
 
     static fetchCocktails(){
+        console.log("A")
         fetch(baseURL + "cocktails")
         .then(res => res.json())
         .then(cocktailData => { 
             cocktailData.forEach(cocktail => {
+                console.log('B')
                 let c = new Cocktail(cocktail)
                 c.addToDom()
                 
             })
         })
+        console.log("c")
     }
 
     // retrieving cocktail information from back-end
